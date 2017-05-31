@@ -1,10 +1,13 @@
 <template lang="html">
-  <div>
+  <el-card>
     <div>{{count}}</div>
     <div>{{doneTodos}}</div>
     <div>{{doneTodosCount}}</div>
     <div>{{goods}}</div>
-  </div>
+    <div class="">
+      <i class="fa fa-window-close" aria-hidden="true"></i>
+    </div>
+  </el-card>
 </template>
 
 <script>
@@ -54,4 +57,3 @@
 
 <style lang="css">
 </style>
-
