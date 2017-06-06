@@ -96,6 +96,15 @@
       </el-card>
     </el-col>
   </el-row>
+  <el-row>
+    <el-col :span="24">
+      <el-card>
+        <div slot="header">
+          <span>测试结果</span>
+        </div>
+      </el-card>
+    </el-col>
+  </el-row>
 
 
 </div>
@@ -143,13 +152,19 @@ export default {
         this.$message('url为空');
         return false;
       }
+      this.wsData.url = url;
 
       //maxConnections
+      var maxConnections = this.wsForm.maxConnections;
       if (this.isEmpty(maxConnections)) {
         this.$message('最大连接数为空')
       }
 
+
       //开始测试
+
+
+
     },
     startWsPerformanceExecute() {
       this.wsForm.disabled = true;

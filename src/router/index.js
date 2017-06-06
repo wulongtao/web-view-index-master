@@ -13,7 +13,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/ws-performanceView',
+      path: '/ws-performance',
       name: 'WsPerformance',
       component: WsPerformance
     }
