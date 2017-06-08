@@ -4,31 +4,28 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+//global getters
+import {getters} from './getters'
+//global mutations
+import {mutations} from './mutations'
+
+//ext modules
+import example1 from './modules/demo/example1'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     count: 0,
-    goods: {},
+    goods: [],
     todos: [
       {id: 1, text: '...', done: true},
       {id: 1, text: '...', done: false},
     ]
   },
-  getters: {
-    doneTodos: state => {
-      return state.todos.filter(todo => todo.done)
-    },
-    doneTodosCount: (state, getters) => {
-      return getters.doneTodos.length
-    }
+  modules: {
+    example1,
   },
-  mutations: {
-    increment(state) {
-      state.count++;
-    },
-    increment2(state, payload) {
-      state.goods = payload
-    }
-  }
+  getters: getters,
+  mutations: mutations
 })
