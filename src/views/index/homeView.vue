@@ -42,7 +42,7 @@
       this.add();
       this.add();
       this.$store.commit({
-        type: 'increment2',
+        type: 'increment',
         price: 10,
         count: 8
       })
