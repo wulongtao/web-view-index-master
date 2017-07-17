@@ -12,7 +12,17 @@ export default {
 
     //判断是否为空
     Vue.prototype.isEmpty = function(value) {
-      return value == undefined || value.trim() == '';
+      return value == undefined || value.trim() == '' || value == null;
+    }
+
+    Vue.prototype.httpPost = function (url, data, func) {
+      Vue.prototype.$http.post(url, data).then((response) => {
+        if (response.status != 200 || response.data == null || response.data.result != 0) {
+          Vue.prototype.$message(response.data['msg'])
+          return ;
+        }
+        func(response.data)
+      })
     }
   }
 }

@@ -10,10 +10,14 @@
   export default {
     methods: {
       testAxiosPost() {
-          this.$http.post("http://localhost:8888/demo/testJson", {id:1,name:'xxh'}).then((response) => {
-              console.log(response);
+          this.httpPost("http://localhost:8888/demo/testJson", {id:1,name:'xxh'}, function (response) {
+              console.log("response")
+              console.log(response)
           })
       }
+    },
+    created() {
+//        console.log(this.isJsonString({id:1}));
     }
   }
 </script>

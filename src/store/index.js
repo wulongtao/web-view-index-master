@@ -5,26 +5,21 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 //global getters
+import {state} from './state'
+//global getters
 import {getters} from './getters'
 //global mutations
 import {mutations} from './mutations'
 
 //ext modules
-import example1 from './modules/demo/example1'
+import httpUrl from './modules/common/http-url'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
-    count: 0,
-    goods: [],
-    todos: [
-      {id: 1, text: '...', done: true},
-      {id: 1, text: '...', done: false},
-    ]
-  },
+  state: state,
   modules: {
-    example1,
+    httpUrl
   },
   getters: getters,
   mutations: mutations

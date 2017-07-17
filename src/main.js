@@ -1,10 +1,14 @@
-//三方
 import Vue from 'vue'
+
+//element-ui组件库
 import ElementUI from 'element-ui'
 //axios异步请求
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import Qs from 'querystring'
+
+//cookie
+import VueCookie from 'vue-cookie'
 
 //自定义plugin
 import utilPlugin from './plugin/util'
@@ -19,9 +23,25 @@ import 'element-ui/lib/theme-default/index.css'
 
 Vue.use(ElementUI)
 Vue.use(utilPlugin)
+Vue.use(VueCookie)
 
 
 Vue.config.productionTip = false
+
+
+/**
+ * 动态添加路由
+ */
+// store.commit('setRoutes', ['/user','index1','index2','/system'])
+// router.addRoutes(store.getters.getRoutes)
+// console.log(store.getters.getRoutes)
+/*router.beforeEach((to, from, next) => {
+  //TODO token判断是否登录之类
+  console.log(from)
+  console.log(to)
+  next()
+
+})*/
 
 
 /**
@@ -34,12 +54,18 @@ var axiosInstance = axios.create({
     return data
   }],
   transformResponse: [function (response) {
-    console.log(response)
-    if (!utilPlugin.isJsonString(response)) {
-      
+
+    var errorResponse = {
+      result: -1,
+      msg: '请求错误'
     }
-    return response;
-  }]
+
+    if (!Vue.prototype.isJsonString(response) || Vue.prototype.isEmpty(response)) {
+      return errorResponse
+    }
+    return JSON.parse(response)
+  }],
+
 })
 Vue.use(VueAxios, axiosInstance)
 

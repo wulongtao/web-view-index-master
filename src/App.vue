@@ -20,7 +20,7 @@ export default {
   body {
     margin: 0;
     padding: 0;
-    background-color: #EFF2F7;
+    /*background-color: #EFF2F7;*/
   }
 
 
