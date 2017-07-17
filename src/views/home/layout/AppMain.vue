@@ -1,12 +1,9 @@
 <template>
   <section class="app-main" style="min-height: 100%">
-    <!--<transition>-->
-
     <keep-alive>
       <router-view :key="key"></router-view>
-    </keep-alive><!--</transition>-->
+    </keep-alive>
   </section>
-  <!--<router-view :key="key"></router-view>-->
 </template>
 
 <script>

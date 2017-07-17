@@ -15,11 +15,9 @@
     },
     activated: function () {
       console.log("activated")
-      this.initData();
     },
     deactivated: function () {
       console.log("deactivated")
-
     },
     data() {
       return {
@@ -28,13 +26,6 @@
     },
     computed: {},
     methods: {
-      initData: function () {
-        let _this = this;
-        _this.fromLocation = JSON.parse(this.$route.query.fromLocation);
-        _this.toLocation = JSON.parse(this.$route.query.toLocation);
-        _this.activeIndex = parseInt(this.$route.params.activeIndex) || 0;
-        _this.policyType = parseInt(this.$route.params.policyType) || 0;
-      },
     },
     components: {
     }

@@ -3,6 +3,9 @@ import Router from 'vue-router'
 import Login from '@/views/index/loginView'
 import Home from '@/views/home/homeView'
 
+import Hello from '@/views/demo/example3View'
+import Hello0 from '@/views/demo/Hello0'
+import a from '@/views/demo/a'
 
 import System from '@/views/system/systemView'
 import User1 from '@/views/user/user1View'
@@ -12,6 +15,15 @@ Vue.use(Router)
 
 export const constantRouterMap = [
   {
+    path: '/hello',
+    name: 'Hello',
+    component: Hello,
+    children: [
+      {path:'/hello0', name:'hello0', component:Hello0},
+      {path:'/a', name:'a', component:a},
+    ]
+  },
+  {
     path: '/login',
     name: 'Login',
     component: Login
@@ -20,6 +32,10 @@ export const constantRouterMap = [
     path: '/home',
     name: 'Home',
     component: Home,
+    /*children: [
+      { path: '/user1', component: User1, name: '用户管理1'},
+      { path: '/user2', component: User2, name: '用户管理2'},
+    ]*/
   },
   {
     path: '/user',
